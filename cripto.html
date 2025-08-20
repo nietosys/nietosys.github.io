@@ -3,109 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía de Seguridad Cripto</title>
+    <title>Infografía Interactiva: Billeteras Calientes (Hot Wallets)</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f4f8fb;
             color: #333;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Alinea el contenido al inicio para infografías largas */
+            min-height: 100vh;
         }
         .infographic {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             width: 100%;
             overflow: hidden;
         }
         header {
-            background: linear-gradient(90deg, #0d47a1, #1976d2);
+            background: linear-gradient(135deg, #29abe2, #0b76b6);
             color: white;
             padding: 30px;
             text-align: center;
+            border-bottom: 2px solid #1e88e5;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            font-weight: 700;
+            font-size: 2.2em;
+            font-weight: bold;
         }
-        header p {
-            margin: 5px 0 0;
-            font-size: 1.2em;
-            opacity: 0.9;
+        .section {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
         }
-        .container {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+        .section:last-child {
+            border-bottom: none;
         }
-        .card {
-            background-color: #f8f9fa;
-            border-left: 5px solid #1976d2;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .card.full-width {
-            grid-column: 1 / -1;
-            text-align: center;
-            background-color: #e3f2fd;
-            border-color: #0d47a1;
-        }
-        .card.danger {
-            border-color: #d32f2f;
-            background-color: #ffebee;
-        }
-        .card h2 {
+        .section h2 {
+            color: #29abe2;
             margin-top: 0;
-            font-size: 1.5em;
-            color: #0d47a1;
+            font-size: 1.8em;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
         }
-        .card.danger h2 {
-            color: #d32f2f;
-        }
-        .card .icon {
-            font-size: 1.8em;
-            margin-right: 15px;
-        }
-        .card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .card ul li {
-            margin-bottom: 10px;
-            line-height: 1.5;
-            display: flex;
-            align-items: flex-start;
-        }
-        .card ul li::before {
-            content: '✓';
-            color: #2e7d32;
-            font-weight: bold;
+        .section h2 .icon {
             margin-right: 10px;
+            font-size: 1.5em;
         }
-        .card.danger ul li::before {
-            content: '✗';
+        .subsection {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #90caf9;
+            border-radius: 5px;
+        }
+        .subsection h3 {
+            color: #1e88e5;
+            margin-top: 0;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .subsection h3 .icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        .subsection p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .subsection ul {
+            list-style: disc;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        .subsection ul li {
+            line-height: 1.6;
+        }
+        .interactive-element {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+            border: 1px solid #bbdefb;
+        }
+        .interactive-element h4 {
+            color: #1976d2;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .interactive-content {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            border: 1px solid #ace;
+        }
+        .interactive-element.active .interactive-content {
+            display: block;
+        }
+        .warning {
             color: #d32f2f;
+            font-weight: bold;
         }
-        .card strong {
-            color: #1a237e;
+        .pros {
+            color: #388e3c;
+            font-weight: bold;
         }
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            header h1 {
-                font-size: 2em;
-            }
+        .cons {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .example-app {
+            font-style: italic;
+            color: #777;
         }
     </style>
 </head>
@@ -113,51 +133,122 @@
 
     <div class="infographic">
         <header>
-            <h1>Guía Rápida para Proteger tus Criptomonedas</h1>
-            <p>Tu seguridad es tu responsabilidad. ¡Sigue estos pasos!</p>
+            <h1>Billeteras Calientes (Hot Wallets) para Criptomonedas</h1>
+            <p>La conveniencia al alcance de tu mano, con precauciones importantes.</p>
         </header>
 
-        <div class="container">
-            <div class="card full-width">
-                <h2><span class="icon">🔑</span>Concepto Clave: Tus Llaves, Tus Criptos</h2>
-                <p>Si no controlas tu <strong>Clave Privada</strong> y tu <strong>Frase Semilla</strong> (12-24 palabras), no eres el verdadero dueño de tus fondos.</p>
-            </div>
+        <section class="section">
+            <h2><span class="icon">🔥</span> ¿Qué son las Billeteras Calientes?</h2>
+            <p>Las <strong>billeteras calientes (hot wallets)</strong> son billeteras de criptomonedas que están conectadas a internet de alguna manera. Esta conexión las hace convenientes para realizar transacciones rápidas y frecuentes, pero también las expone a ciertos riesgos de seguridad en línea.</p>
+            <p>Piensa en ellas como tu cuenta corriente: accedes a tus fondos fácilmente, pero no guardarías todos tus ahorros ahí.</p>
+        </section>
 
-            <div class="card">
-                <h2><span class="icon">📱</span>Paso 1: Elige tu Billetera</h2>
+        <section class="section">
+            <h2><span class="icon">📱</span> Tipos de Billeteras Calientes</h2>
+
+            <div class="subsection">
+                <h3><span class="icon">📲</span> Billeteras Móviles</h3>
+                <p>Aplicaciones instaladas directamente en tu smartphone (iOS o Android).</p>
                 <ul>
-                    <li><strong>Billeteras Calientes (Software):</strong> Apps para iOS/Android. Ideales para empezar y para pequeñas cantidades. <em>(Ej: Trust Wallet, Exodus)</em></li>
-                    <li><strong>Billeteras Frías (Hardware):</strong> Dispositivos físicos (USB). Máxima seguridad para guardar a largo plazo. <em>(Ej: Ledger, Trezor)</em></li>
+                    <li><strong>Pros:</strong> Muy convenientes para el uso diario, escanear códigos QR, interactuar con aplicaciones descentralizadas (DApps).</li>
+                    <li><strong>Contras:</strong> La seguridad de tus fondos depende de la seguridad de tu teléfono. Si tu teléfono es comprometido, tu billetera también podría serlo.</li>
+                    <li><strong>Ejemplos:</strong> <span class="example-app">Trust Wallet</span>, <span class="example-app">Exodus</span>, <span class="example-app">Coinbase Wallet</span> (no la app del exchange), <span class="example-app">MetaMask (móvil)</span>.</li>
                 </ul>
             </div>
 
-            <div class="card">
-                <h2><span class="icon">🛡️</span>Paso 2: Asegura tu Móvil</h2>
+            <div class="subsection">
+                <h3><span class="icon">💻</span> Billeteras de Escritorio</h3>
+                <p>Programas que instalas en tu computadora (Windows, macOS, Linux).</p>
                 <ul>
-                    <li>Activa siempre el <strong>bloqueo de pantalla</strong> (PIN, Huella, Face ID).</li>
-                    <li>Usa el <strong>bloqueo dentro de la app</strong> de tu billetera.</li>
-                    <li>Descarga apps <strong>solo de tiendas oficiales</strong> (App Store / Play Store).</li>
-                    <li>Evita usar <strong>Wi-Fi público</strong> para transacciones.</li>
+                    <li><strong>Pros:</strong> Mayor pantalla para visualizar información, pueden ofrecer más funciones que las billeteras móviles.</li>
+                    <li><strong>Contras:</strong> Si tu computadora está infectada con malware, tus claves privadas podrían estar en riesgo. Debes asegurarte de tener tu sistema operativo y software de seguridad actualizados.</li>
+                    <li><strong>Ejemplos:</strong> <span class="example-app">Electrum (principalmente Bitcoin)</span>, <span class="example-app">Exodus (versión de escritorio)</span>, <span class="example-app">Atomic Wallet</span>.</li>
                 </ul>
             </div>
 
-            <div class="card danger full-width">
-                <h2><span class="icon">📜</span>Paso 3: La Regla de Oro de tu Frase Semilla</h2>
+            <div class="subsection">
+                <h3><span class="icon">🌐</span> Billeteras Web (Online Wallets)</h3>
+                <p>Billeteras a las que accedes a través de un navegador web. Pueden ser:</p>
                 <ul>
-                    <li><strong>NUNCA</strong> la guardes en formato digital (fotos, notas, nube).</li>
-                    <li><strong>NUNCA</strong> la compartas con nadie, ni con soporte técnico.</li>
-                    <li><strong>NUNCA</strong> la introduzcas en ningún sitio web.</li>
-                    <li><strong>SIEMPRE</strong> escríbela en papel o grábala en metal.</li>
-                    <li><strong>SIEMPRE</strong> guarda tus copias en lugares seguros y separados.</li>
+                    <li><strong>Custodiales:</strong> Tus claves privadas son gestionadas por un tercero (por ejemplo, el exchange). <span class="warning">"No son tus llaves, no son tus criptos."</span></li>
+                        <ul>
+                            <li><strong>Pros:</strong> Muy fáciles de usar, integradas con plataformas de intercambio.</li>
+                            <li><strong>Contras:</strong> Confías la seguridad de tus fondos a la plataforma. Si la plataforma es hackeada o cierra, podrías perder tus fondos.</li>
+                            <li><strong>Ejemplos:</strong> Billeteras dentro de <span class="example-app">Binance</span>, <span class="example-app">Coinbase (la plataforma)</span>, <span class="example-app">Bitso</span>.</li>
+                        </ul>
+                    <li><strong>No Custodiales (Web3 Wallets):</strong> Te dan control total de tus claves privadas a través de una extensión de navegador.</li>
+                        <ul>
+                            <li><strong>Pros:</strong> Tú tienes el control total, puedes interactuar directamente con aplicaciones descentralizadas (DApps) en la web.</li>
+                            <li><strong>Contras:</strong> Tú eres totalmente responsable de la seguridad de tus claves. Si las pierdes, pierdes tus fondos.</li>
+                            <li><strong>Ejemplos:</strong> <span class="example-app">MetaMask (extensión de navegador)</span>, <span class="example-app">Trust Wallet (versión de navegador)</span>.</li>
+                        </ul>
                 </ul>
             </div>
+        </section>
 
-            <div class="card full-width">
-                <h2><span class="icon">🎣</span>¡Cuidado con las Estafas!</h2>
-                <p>Desconfía de regalos, sorteos o mensajes que te pidan actuar con urgencia. Los estafadores intentarán robar tu frase semilla o tus credenciales mediante <strong>phishing</strong>.</p>
+        <section class="section">
+            <h2><span class="icon">🔒</span> Mejores Prácticas de Seguridad para Billeteras Calientes</h2>
+
+            <div class="interactive-element">
+                <h4><span class="icon">🔑</span> Contraseñas Fuertes y Únicas</h4>
+                <div class="interactive-content">
+                    <p>Utiliza contraseñas complejas que combinen letras mayúsculas, minúsculas, números y símbolos. <span class="warning">NO uses la misma contraseña para múltiples cuentas.</span> Considera usar un gestor de contraseñas.</p>
+                </div>
             </div>
-        </div>
+
+            <div class="interactive-element">
+                <h4><span class="icon">🛡️</span> Activa la Autenticación de Dos Factores (2FA)</h4>
+                <div class="interactive-content">
+                    <p>Siempre que sea posible, activa el 2FA utilizando una <strong>aplicación de autenticación</strong> (como Authy o Google Authenticator), en lugar de SMS. El 2FA añade una capa extra de seguridad al requerir un código adicional además de tu contraseña.</p>
+                </div>
+            </div>
+
+            <div class="interactive-element">
+                <h4><span class="icon">📧</span> ¡Cuidado con el Phishing!</h4>
+                <div class="interactive-content">
+                    <p>Desconfía de correos electrónicos, mensajes o sitios web sospechosos que te pidan tus claves privadas, frase semilla o información personal. <span class="warning">NUNCA compartas tu frase semilla con nadie.</span> Verifica siempre las URLs.</p>
+                </div>
+            </div>
+
+            <div class="interactive-element">
+                <h4><span class="icon">📱</span> Protege tu Dispositivo</h4>
+                <div class="interactive-content">
+                    <p>Asegura tu teléfono o computadora con un PIN fuerte, huella digital o reconocimiento facial. Mantén tu sistema operativo y todas tus aplicaciones actualizadas para tener los últimos parches de seguridad.</p>
+                </div>
+            </div>
+
+            <div class="interactive-element">
+                <h4><span class="icon">📥</span> Descarga Solo de Fuentes Oficiales</h4>
+                <div class="interactive-content">
+                    <p>Descarga las aplicaciones de billetera móvil únicamente desde la App Store (iOS) o Google Play Store (Android). Para billeteras de escritorio, descarga el software directamente desde el sitio web oficial del proyecto.</p>
+                </div>
+            </div>
+
+            <div class="interactive-element">
+                <h4><span class="icon">📶</span> Sé Cauteloso con el Wi-Fi Público</h4>
+                <div class="interactive-content">
+                    <p>Evita realizar transacciones con tu billetera caliente mientras estás conectado a redes Wi-Fi públicas no seguras. Considera usar una VPN si es necesario.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center; background-color: #f0f8ff;">
+            <h2>Conclusión</h2>
+            <p>Las billeteras calientes ofrecen una gran conveniencia para el uso diario de criptomonedas. Sin embargo, es crucial ser consciente de los riesgos y seguir estrictamente las mejores prácticas de seguridad para proteger tus activos digitales.</p>
+            <p>Recuerda: Para grandes cantidades o almacenamiento a largo plazo, considera complementar con una <a href="#" style="color: #0b76b6; font-weight: bold; text-decoration: none;" onclick="alert('¡Esta infografía es solo sobre billeteras calientes!'); return false;">billetera fría (hardware wallet)</a>.</p>
+        </section>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const interactiveElements = document.querySelectorAll('.interactive-element');
+            interactiveElements.forEach(element => {
+                element.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
