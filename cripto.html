@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía de Seguridad Cripto</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .infographic {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(90deg, #0d47a1, #1976d2);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .container {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        .card {
+            background-color: #f8f9fa;
+            border-left: 5px solid #1976d2;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .card.full-width {
+            grid-column: 1 / -1;
+            text-align: center;
+            background-color: #e3f2fd;
+            border-color: #0d47a1;
+        }
+        .card.danger {
+            border-color: #d32f2f;
+            background-color: #ffebee;
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #0d47a1;
+            display: flex;
+            align-items: center;
+        }
+        .card.danger h2 {
+            color: #d32f2f;
+        }
+        .card .icon {
+            font-size: 1.8em;
+            margin-right: 15px;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .card ul li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+        }
+        .card ul li::before {
+            content: '✓';
+            color: #2e7d32;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .card.danger ul li::before {
+            content: '✗';
+            color: #d32f2f;
+        }
+        .card strong {
+            color: #1a237e;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="infographic">
+        <header>
+            <h1>Guía Rápida para Proteger tus Criptomonedas</h1>
+            <p>Tu seguridad es tu responsabilidad. ¡Sigue estos pasos!</p>
+        </header>
+
+        <div class="container">
+            <div class="card full-width">
+                <h2><span class="icon">🔑</span>Concepto Clave: Tus Llaves, Tus Criptos</h2>
+                <p>Si no controlas tu <strong>Clave Privada</strong> y tu <strong>Frase Semilla</strong> (12-24 palabras), no eres el verdadero dueño de tus fondos.</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">📱</span>Paso 1: Elige tu Billetera</h2>
+                <ul>
+                    <li><strong>Billeteras Calientes (Software):</strong> Apps para iOS/Android. Ideales para empezar y para pequeñas cantidades. <em>(Ej: Trust Wallet, Exodus)</em></li>
+                    <li><strong>Billeteras Frías (Hardware):</strong> Dispositivos físicos (USB). Máxima seguridad para guardar a largo plazo. <em>(Ej: Ledger, Trezor)</em></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">🛡️</span>Paso 2: Asegura tu Móvil</h2>
+                <ul>
+                    <li>Activa siempre el <strong>bloqueo de pantalla</strong> (PIN, Huella, Face ID).</li>
+                    <li>Usa el <strong>bloqueo dentro de la app</strong> de tu billetera.</li>
+                    <li>Descarga apps <strong>solo de tiendas oficiales</strong> (App Store / Play Store).</li>
+                    <li>Evita usar <strong>Wi-Fi público</strong> para transacciones.</li>
+                </ul>
+            </div>
+
+            <div class="card danger full-width">
+                <h2><span class="icon">📜</span>Paso 3: La Regla de Oro de tu Frase Semilla</h2>
+                <ul>
+                    <li><strong>NUNCA</strong> la guardes en formato digital (fotos, notas, nube).</li>
+                    <li><strong>NUNCA</strong> la compartas con nadie, ni con soporte técnico.</li>
+                    <li><strong>NUNCA</strong> la introduzcas en ningún sitio web.</li>
+                    <li><strong>SIEMPRE</strong> escríbela en papel o grábala en metal.</li>
+                    <li><strong>SIEMPRE</strong> guarda tus copias en lugares seguros y separados.</li>
+                </ul>
+            </div>
+
+            <div class="card full-width">
+                <h2><span class="icon">🎣</span>¡Cuidado con las Estafas!</h2>
+                <p>Desconfía de regalos, sorteos o mensajes que te pidan actuar con urgencia. Los estafadores intentarán robar tu frase semilla o tus credenciales mediante <strong>phishing</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
